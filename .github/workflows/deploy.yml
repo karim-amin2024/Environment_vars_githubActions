@@ -13,9 +13,6 @@ jobs:
     # if it is a testing job we musn't manipulate the actual/production database 
     env:
       MONGODB_CLUSTER_ADDRESS: testdatabase.8rvhm3p.mongodb.net
-      MONGODB_USERNAME: KarimAmin
-      MONGODB_PASSWORD: g0s04lLzkgJF3qi2
-      PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
     steps:

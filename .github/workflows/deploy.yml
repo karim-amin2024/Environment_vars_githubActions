@@ -5,8 +5,7 @@ on:
       - main
       - dev
       - master
-env: 
-  MONGODB_DB_NAME: gha-demo
+
 jobs:
   test:
     # The Following env vars should be defined based on the job type 
@@ -15,7 +14,7 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: testdatabase.8rvhm3p.mongodb.net
       MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
       MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
-
+      MONGODB_DB_NAME: TestDataBase
     environment: testing
     runs-on: ubuntu-latest
     steps:

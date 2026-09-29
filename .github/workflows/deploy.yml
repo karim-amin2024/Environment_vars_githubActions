@@ -13,6 +13,9 @@ jobs:
     # if it is a testing job we musn't manipulate the actual/production database 
     env:
       MONGODB_CLUSTER_ADDRESS: testdatabase.8rvhm3p.mongodb.net
+      MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
+      MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
+
     environment: testing
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:$PORT
+        run: npm start & npx wait-on http://127.0.0.1:${{secrets.PORT}}
       - name: Run tests
         run: npm test
       - name: Output information
